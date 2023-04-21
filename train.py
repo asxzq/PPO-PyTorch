@@ -7,7 +7,7 @@ import torch
 import numpy as np
 
 import gym
-import roboschool
+# import roboschool
 
 from PPO import PPO
 
@@ -16,11 +16,11 @@ def train():
     print("============================================================================================")
 
     ####### initialize environment hyperparameters ######
-    env_name = "RoboschoolWalker2d-v1"
+    env_name = "LandMars3d-v0"
 
     has_continuous_action_space = True  # continuous action space; else discrete
 
-    max_ep_len = 1000                   # max timesteps in one episode
+    max_ep_len = 500                   # max timesteps in one episode
     max_training_timesteps = int(3e6)   # break training loop if timeteps > max_training_timesteps
 
     print_freq = max_ep_len * 10        # print avg reward in the interval (in num timesteps)
@@ -42,8 +42,8 @@ def train():
     eps_clip = 0.2          # clip parameter for PPO
     gamma = 0.99            # discount factor
 
-    lr_actor = 0.0003       # learning rate for actor network
-    lr_critic = 0.001       # learning rate for critic network
+    lr_actor = 0.00003       # learning rate for actor network
+    lr_critic = 0.0001       # learning rate for critic network
 
     random_seed = 0         # set random seed if required (0 = no random seed)
     #####################################################
@@ -250,7 +250,6 @@ def train():
 
 
 if __name__ == '__main__':
-
     train()
     
     
